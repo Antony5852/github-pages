@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Te Amo - San Valentín</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            /* Cambia 'fondo.jpg' por el nombre de tu imagen o la URL de la imagen */
+            background: url('fondo.jpg') no-repeat center center fixed; 
+            background-size: cover; /* Esto asegura que la imagen cubra toda la pantalla */
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        h1 {
+            font-size: 3em;
+            margin-top: 50px;
+        }
+        .heart {
+            font-size: 5em;
+            color: red;
+            animation: heartbeat 1.5s infinite;
+        }
+        p {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+        button {
+            background-color: #ff4c4c;
+            border: none;
+            color: white;
+            padding: 15px 25px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #e60000;
+        }
+        @keyframes heartbeat {    
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Añadir un contenedor con fondo semitransparente */
+        .content {
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con opacidad */
+            padding: 20px;
+            border-radius: 15px;
+            width: 80%;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Para la chinita dueña de mi corazón</h1>
+        <div class="heart">🩵</div>
+        <p>¿Quiero que sepas que te amooo mucho mucho, este 14 de febrero!, te gustaría...</p>
+        <p>¿Ser mi San Valentín?</p>
+
+        <!-- Botones de respuesta -->
+        <button id="btnAceptar" onclick="mostrarRespuesta(true)">Shi 🩵</button>
+        <button id="btnRechazar" onclick="mostrarRespuesta(false)">Nel.</button>
+
+        <!-- Espacio para respuesta -->
+        <div id="respuesta"></div>
+    </div>
+
+    <script>
+        // Función que maneja la respuesta
+        function mostrarRespuesta(aceptar) {
+            // Ocultar los botones de respuesta
+            document.getElementById("btnAceptar").style.display = "none";
+            document.getElementById("btnRechazar").style.display = "none";
+            
+            let respuesta = document.getElementById("respuesta");
+
+            if (aceptar) {
+                respuesta.innerHTML = "Te amoooo mucho mi chinita , te hare pasar un 14 unico mi amor, muakk.🩵";
+                respuesta.style.animation = "fadeIn 2s ease-out";
+                // Pedir el mensaje de voz por WhatsApp
+                setTimeout(() => {
+                    respuesta.innerHTML += '<br>Si te gustó dame un mesho en audio mi vida.🩵 <a href="https://wa.me/58529856" target="_blank">Haz clic aquí para enviarme el mensaje</a>';
+                }, 2000);
+            } else {
+                // Si dice que no, repetimos la pregunta con un poco de humor
+                respuesta.innerHTML = "No podes decirme que no porque ya eres mi novia JASJASJ 🥺";
+                respuesta.style.animation = "fadeIn 2s ease-out";
+                // Mostrar la pregunta otra vez
+                setTimeout(() => {
+                    document.getElementById("btnAceptar").style.display = "inline-block";
+                    document.getElementById("btnRechazar").style.display = "inline-block";
+                }, 2000); // Reaparecerá la pregunta después de 2 segundos
+            }
+        }
+    </script>
+</body>
+</html>
